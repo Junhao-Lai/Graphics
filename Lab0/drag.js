@@ -7,14 +7,14 @@ ctx.fillRect(0, 0, c.width, c.height);
     // Draw horizontal red axis
     ctx.strokeStyle = "red";
     ctx.beginPath();
-    ctx.moveTo(0, c.height / 2);
-    ctx.lineTo(c.width, c.height / 2);
+    ctx.moveTo(0, 250); //start 
+    ctx.lineTo(500,250); // dst 
     ctx.stroke();
 
     // Draw vertical green axis
     ctx.strokeStyle = "green";
     ctx.beginPath();
-    ctx.moveTo(c.width / 2, 0);
-    ctx.lineTo(c.width / 2, c.height);
+    ctx.moveTo(250,0);
+    ctx.lineTo(250,500);
     ctx.stroke();
-    
+
