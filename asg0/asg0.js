@@ -9,7 +9,7 @@ function main() {
   // Get the rendering context for 2DCG
   var ctx = canvas.getContext('2d');
 
-  // Draw a blue rectangle
-  ctx.fillStyle = 'rgba(0, 0, 0, 1.0)'; // Set color to blue
+  // Draw a 黑 rectangle
+  ctx.fillStyle = 'rgba(0, 0, 0, 1.0)'; // Set color to black
   ctx.fillRect(0, 0, canvas.width, canvas.height);        // Fill a rectangle with the color
 }
