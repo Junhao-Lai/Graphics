@@ -48,13 +48,15 @@
         <option value="sub">Subtract</option>
         <option value="mul">Multiply</option>
         <option value="div">Divide</option>
+        <option value="mag">Magnitude</option>
+        <option value="nor">Normalize</option>
       </select>
       <label for="name">Scalar: </label>
 
       <input type="text" id="scalar" required
       minlength="4" maxlength="8" size="10">
     <br><br>
-    <input type="button" value="Click me!!" onclick="drawVector(v,color)"></input>
+    <input type="button" value="Click me!!" onclick="handleDrawOperationEvent()"></input>
 
   </body>
 </html>

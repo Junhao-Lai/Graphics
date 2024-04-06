@@ -65,3 +65,63 @@ function handleDrawEvent(){
   drawVector(v2,"blue"); // done with step #4
 
 } 
+
+function handleDrawOperationEvent(){
+  ctx.clearRect(0,0,canvas.width, canvas.height);
+  ctx.fillStyle = 'rgba(0, 0, 0, 1.0)'; // Set color to black
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  let v1x = document.getElementById("1x").value;
+  let v1y = document.getElementById("1y").value;
+  var v1 = new Vector3([v1x,v1y,0]);
+  drawVector(v1,"red");
+
+  let v2x = document.getElementById("2x").value;
+  let v2y = document.getElementById("2y").value;
+  let v2 = new Vector3([v2x,v2y,0]);
+  drawVector(v2,"blue"); 
+  
+  
+  let op = document.getElementById("op").value;
+  let scalar = document.getElementById("scalar").value;
+
+  if (op == "add") {
+    let v3 = new Vector3([0,0,0]);
+    v3.add(v1);
+    v3.add(v2);
+    drawVector(v3,"green");
+  }
+  else if(op == "sub"){
+    let v3 = new Vector3([0,0,0]);
+    v3.add(v1);
+    v3.sub(v2);
+    drawVector(v3,"green");
+  }
+  else if(op == "mul"){
+    let v3 = v1;
+    let v4 = v2;
+    v3.mul(scalar);
+    v4.mul(scalar);
+    drawVector(v3,"green");
+    drawVector(v4,"green");
+  }
+  else if(op == "div"){
+    let v3 = v1;
+    let v4 = v2;
+    v3.div(scalar);
+    v4.div(scalar);
+    drawVector(v3,"green");
+    drawVector(v4,"green");
+  }
+  else if(op = "mag"){
+    console.log("Magnitude v1:", v1.magnitude());
+    console.log("Magnitude v2:", v2.magnitude());
+  }
+  else if(op == "nor"){
+    v1.normalize();
+    v2.normalize();
+    drawVector(v1,"green");
+    drawVector(v2,"green");
+    
+  }
+}
