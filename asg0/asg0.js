@@ -18,9 +18,9 @@ function main() {
 
 
   let v1 = {
-    elements: [2.25, 2.25] // Example vector components
+    elements: [2.25,2.25] // Example vector components
   };
-  drawVector(v1, "red");
+  drawVector(v1, "red"); // step #2
   
 
 }
@@ -50,3 +50,13 @@ function drawVector(v,color){
   ctx.stroke();
 }
 
+function handleDrawEvent(){
+  ctx.clearRect(0,0,canvas.width, canvas.height);
+  ctx.fillStyle = 'rgba(0, 0, 0, 1.0)'; // Set color to black
+  ctx.fillRect(0, 0, canvas.width, canvas.height);// Fill a rectangle with the color
+  let v1x = document.getElementById("1x").value;
+  let v1y = document.getElementById("1y").value;
+  var v1 = new Vector3([v1x,v1y,0]);
+  drawVector(v1,"red");
+
+} // done with step #3

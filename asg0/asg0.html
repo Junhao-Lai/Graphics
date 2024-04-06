@@ -13,12 +13,24 @@
     <script src="lib/cuon-matrix-cse160.js"></script>
 
     <br><br>
-    <label for="name">V1</label>
+<!---第一行-->
+    <label for="name">v1: x</label>
 
-    <input type="text" id="name" required
+    <input type="text" id="1x" required
            minlength="4" maxlength="8" size="10">
-    
-    <br><br>
+
+    <label for="name">y</label>
+
+    <input type="text" id="1y" required
+           minlength="4" maxlength="8" size="10">
+    <br><br> 
+
+<!---第2行-->
+    <input type="button" value="Draw!" onclick="handleDrawEvent()"></input>
+
+
+
+    <br><br> 
     <label for "op-select">Operation:</label>
 
       <select name="op" id="op">
