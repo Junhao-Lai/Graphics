@@ -113,7 +113,7 @@ function handleDrawOperationEvent(){
     drawVector(v3,"green");
     drawVector(v4,"green");
   }
-  else if(op = "mag"){
+  else if(op == "mag"){
     console.log("Magnitude v1:", v1.magnitude());
     console.log("Magnitude v2:", v2.magnitude());
   }
@@ -122,6 +122,30 @@ function handleDrawOperationEvent(){
     v2.normalize();
     drawVector(v1,"green");
     drawVector(v2,"green");
-    
+  }
+  else if(op =="ang"){
+
+    angleBetween(v1,v2);
+  }
+  else if(op == "area"){
+    areaTriangle(v1,v2);
   }
 }
+
+function angleBetween(v1,v2){
+  let d = Vector3.dot(v1,v2);
+  let v1mag = v1.magnitude();
+  let v2mag = v2.magnitude();
+  let x = (Math.acos(d/(v1mag*v2mag)*(180/Math.PI)).toFixed(2));
+  console.log("Angle:",x);
+  console.log("Angle in Degree:",x * (180 / Math.PI));
+}
+
+
+function areaTriangle(v1, v2){
+  var a = Vector3.cross(v1, v2);
+  var v1 = new Vector3([a[0], a[1], a[2]]);
+  var b = v1.magnitude()/2;
+  console.log("Area of the triangle:", b);
+}
+

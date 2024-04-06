@@ -101,8 +101,8 @@ class Vector3 {
       */
     static dot(other1, other2) {
         // Insert your code here.
-        let d = 0; // Modify this line to calculate this vector's magnitude.
-
+      //  let d = 0; // Modify this line to calculate this vector's magnitude.
+        let d = (other1.elements[0]*other2.elements[0]) + (other1.elements[1]*other2.elements[1])+ (other1.elements[2]*other2.elements[2]);
         // Don't delete the return statement.
         return d;
     }
@@ -114,8 +114,15 @@ class Vector3 {
     static cross(other1, other2) {
         // Insert your code here.
         // This function should create and return a new vector.
+        // Modify this line to calculate cross product between other1 and other2.
         let v3 = new Vector3(); // Modify this line to calculate cross product between other1 and other2.
+        var o1 = other1.elements;
+        var o2 = other2.elements;
 
+        v3[0] = (o1[1]*o2[2]) - (o1[2]*o2[1]);
+        v3[1] = -((o1[0]*o2[2]) - (o1[2]*o2[0]));
+        v3[2] = (o1[0]*o2[1]) - (o1[1]*o2[0]);
+        
         // Don't delete the return statement.
         return v3;
     }
