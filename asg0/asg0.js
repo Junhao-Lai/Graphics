@@ -57,6 +57,11 @@ function handleDrawEvent(){
   let v1x = document.getElementById("1x").value;
   let v1y = document.getElementById("1y").value;
   var v1 = new Vector3([v1x,v1y,0]);
-  drawVector(v1,"red");
+  drawVector(v1,"red");//done with step #3
 
-} // done with step #3
+  let v2x = document.getElementById("2x").value;
+  let v2y = document.getElementById("2y").value;
+  let v2 = new Vector3([v2x,v2y,0]);
+  drawVector(v2,"blue"); // done with step #4
+
+} 
