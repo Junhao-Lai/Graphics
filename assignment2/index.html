@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2023 Simplified Tax Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <h1 class = "title">2023 Simplified Tax Form</h1>
+
+    <form id="taxForm">
+      <table class="table is-fullwidth is-striped is-hoverable">
+        <tbody>
+          <!-- Use loop to generate rows in production code -->
+          <!-- Income -->
+          <tr class="row-1">
+            <!-- <td>Income</td> -->
+            <td rowspan="6">Income</td>
+
+            <td><b>1</b> Wages, salaries, and tips.This should be shown in box 1 of your Form(s) W-2. Attach your Form(s) W-2.</td>
+            <td><input class="input" type="number" name="value-1" oninput="calculateTax()"></td>
+          </tr>
+
+          <tr class = "row-2">
+            <td><b>2</b> Taxable interest from 1099 forms </td>
+            <td><input class="input" type="number" name="value-2" oninput="calculateTax()"></td>
+          </tr>
+
+          <tr class= "row-3">
+            <td><b>3</b> Other Income not included in 1 and 2.
+            <td><input class="input" type="number" name="value-3" oninput="calculateTax()"></td>
+          </tr>
+
+          <tr class= "row-4">
+            <td><b>4</b> Add lines 1, 2, and 3. This is your adjusted gross income. 
+            <td><input class="input" type="number" name="value-4" oninput="calculateTax()"></td>
+          </tr>
+
+          <tr class= "row-5">
+            <td><b>5</b> If this is a joint return, add you spose as a dependent. Write $13,850 for an individual return and $27,700 for a joint return.
+            <br>
+            <label for="filing-jointly">Spouse</label>
+            <input type="checkbox" id="filing-jointly" name="spouse" onchange="updateSpouseIncome()">
+            <td><input class="input" type="number" name="value-5" oninput="calculateTax()"></td>
+          </tr>
+
+          <tr class= "row-6">
+            <td><b>6</b> Subtract line 5 from line 4. If line 5 is larger than line 4, enter -0-. This is your taxable income.
+            <td><input class="input" type="number" name="value-6" oninput="calculateTax()"></td>
+          </tr>      
+
+          <tr class="row-7">
+            <td rowspan="6">Payments, Credits, and Tax</td>
+            <td><b>7</b> Federal income tax withheld from Form(s) W-2 and 1099.</td>
+            <td><input class="input" type="number" name="value-7" oninput="calculateTax()"></td>
+          </tr>
+
+          <tr class= "row-8">
+            <td><b>8</b> Earned income credit (EIC) </td>
+            <td><input class="input" type="number" name="value-8" oninput="calculateTax()"></td>
+          </tr>    
+
+          <tr class= "row-9">
+            <td><b>9</b> Add lines 7 and 8a. These are your total payments and credits.</td>
+            <td><input class="input" type="number" name="value-9" oninput="calculateTax()"></td>
+          </tr>   
+
+          <tr class= "row-10">
+            <td><b>10</b> Tax. Use the amount on line 6 above to find your tax in the tax table in the instructions. Then, enter the tax from the table on this line.</td>
+            <td><input class="input" type="number" name="value-10" oninput="calculateTax()"></td>
+          </tr>
+
+          <tr class= "row-11">
+            <td><b>11</b> Other Taxes</td>
+            <td><input class="input" type="number" name="value-11" oninput="calculateTax()"></td>
+          </tr>
+
+          <tr class= "row-12">
+            <td><b>12</b> Add lines 10 and 11. This is your total tax.</td>
+            <td><input class="input" type="number" name="value-12" oninput="calculateTax()"></td>
+          </tr>
+
+
+        <tr class="row-13">
+            <td>Refund</td>
+            <td><b>13</b> If line 9 is larger than line 12, subtract line 12 from line 9. This is your refund. If Form 8888 is attached, check here</td>
+            <td><input class="input" type="number" name="value-13" oninput="calculateTax()"></td>
+        </tr>
+
+        <tr class = "row-14">
+            <td>Amount you owe</td>
+            <td><b>14</b> If line 12 is larger than line 9, subtract line 9 from line 12. This is the amount you owe. For details on how to pay, see instructions. </td>
+            <td><input class="input" type="number" name="value-14" oninput="calculateTax()"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+      <!-- More form elements as necessary -->
+    </form>
+
+    <script>
+      const taxRates = [
+        [10, 0, 0],
+        [12, 11000, 22000],
+        [22, 44725, 89450],
+        [24, 95375, 190750],
+        [32, 182100, 364200],
+        [35, 231250, 462500],
+        [37, 578125, 693750]
+      ];
+
+      function calculateTax() {
+        let wages = parseFloat(document.querySelector('[name="value-1"]').value) || 0;
+        let interest = parseFloat(document.querySelector('[name="value-2"]').value) || 0;
+        let otherIncome = parseFloat(document.querySelector('[name="value-3"]').value) || 0;
+        // Compute adjusted gross income
+        document.querySelector('[name="value-4"]').value = wages + interest + otherIncome;
+        // Continue with other computations...
+      }
+
+      function updateSpouseIncome() {
+        let filingJointly = document.getElementById('filing-jointly').checked;
+        document.querySelector('[name="value-5"]').value = filingJointly ? '27700' : '13850'; // Example values
+        // Adjust tax calculation if necessary...
+      }
+
+      // Additional JavaScript to handle tax computation...
+    </script>
+  </div>
+</section>
+
+</body>
+</html>
+
+
+	
