@@ -1,13 +1,31 @@
-<body>
-  <canvas id="c"></canvas>
-  
-  <script type="importmap">
-    {
-        "imports": {
-            "three": "./lib/three.module.js"
-        }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>5A</title>
+  <style>
+    html, body {
+        margin: 0;
+        height: 100%;
     }
-  </script>
-  <script type="module" src="5a.js"></script>
-</body>
+    #c {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="c"></canvas>
+    
+    <script type="importmap">
+      {
+          "imports": {
+              "three": "./lib/three.module.js"
+          }
+      }
+    </script>
+    <script type="module" src="5a.js"></script>
+  </body>
 </html>
