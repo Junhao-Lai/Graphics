@@ -96,10 +96,6 @@ function main() {
             map: texture
         } );
 
-        // const material = new THREE.MeshPhongMaterial({map: 
-    
-        //     loader.load('logo.jpg'),});
-
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
         cube.position.x = x;
