@@ -79,7 +79,7 @@ const CIRCLE = 2;
 // Globals related UI elements
 let g_globalAngle = 0;
 let g_yellowAngle = 0;
-let g_magentaAngle = 0;
+let g_magentaAngle = 0; //leg 
 let g_yellowAnimation = false;
 let g_headAngle = 0;
 let shift = false;
@@ -120,7 +120,9 @@ function main() {
 
     initEventHandlers(canvas, currentAngle);
     // Specify the color for clearing <canvas>
-    gl.clearColor(0.0, 0.0, 0.0, 1);
+    // gl.clearColor(0.0, 0.0, 0.2, 0.6);
+    gl.clearColor(0.0, 0.0, 0.2, 1);
+
 
     requestAnimationFrame(tick);
 }
@@ -225,6 +227,13 @@ function renderScene() {
     head.matrix.rotate(-0, 1, 0, 0);
     head.matrix.scale(0.4, 0.4, 0.4);
     head.matrix.translate(-0.5, 0.65, -1.5);
+
+    if(shift == true){
+        head.matrix.rotate(g_headAngle2, 1, 1, 1)
+    }else {
+        head.matrix.rotate(g_headAngle, 0, 0, 1);
+    }
+    var headcoord = new Matrix4(head.matrix);
     head.render();
 
     var sheep_face = new Cube();
@@ -232,6 +241,12 @@ function renderScene() {
     sheep_face.matrix.rotate(-0, 1, 0, 0);
     sheep_face.matrix.scale(0.4, 0.4, 0.03);
     sheep_face.matrix.translate(-0.5, 0.65, -21);
+    if(shift == true){
+        sheep_face.matrix.rotate(g_headAngle2, 1, 1, 1)
+    }else {
+        sheep_face.matrix.rotate(g_headAngle, 0, 0, 1);
+    }
+    var headcoord = new Matrix4(sheep_face.matrix);
     sheep_face.render();
 
     var tophair = new Cube();
@@ -312,8 +327,17 @@ function renderScene() {
     //frontleftleg.matrix.setTranslate(0,0, 0);
     //frontleftleg.matrix.rotate(-g_Angle,1,0,0); // Joint 1
     //var frontleftlegCoord = new Matrix4(frontleftleg.matrix);
+    frontleftleg.matrix.rotate(-g_magentaAngle,1,0,0);
     frontleftleg.matrix.scale(.15, -0.25, 0.15);
     frontleftleg.matrix.translate(-1.7, 1.5, -2);
+
+    if(shift == true) {
+        frontleftleg.matrix.rotate(g_yellowAngle2, 1, 0, 0);
+    }else{
+        frontleftleg.matrix.rotate(-g_yellowAngle, 0, 0, 1);
+    }
+
+    var frontleftcoordinate = new Matrix4(frontleftleg.matrix);
     frontleftleg.render();
 
     var frontrightleg = new Cube();
@@ -321,8 +345,14 @@ function renderScene() {
    // frontrightleg.matrix.setTranslate(0, 0, 0);
    // frontrightleg.matrix.rotate(g_Angle,1,0,0); // Joint 1
    // var frontrightlegCoord = new Matrix4(frontrightleg.matrix);
+    frontrightleg.matrix.rotate(g_magentaAngle,1,0,0);
     frontrightleg.matrix.scale(.15, -0.25, 0.15);
     frontrightleg.matrix.translate(0.8, 1.5, -2);
+    if(shift == true) {
+        frontrightleg.matrix.rotate(g_yellowAngle2, 1, 0, 0);
+    }else{
+        frontrightleg.matrix.rotate(-g_yellowAngle, 0, 0, 1);
+    }
     frontrightleg.render();
 
     var backleftlegs = new Cube();
@@ -330,8 +360,16 @@ function renderScene() {
   //  backleftlegs.matrix.setTranslate(0, 0, 0);
   //  backleftlegs.matrix.rotate(-g_Angle, 1, 0, 0); // Joint 1
   //  var backleftlegsCoord = new Matrix4(backleftlegs.matrix);
+    backleftlegs.matrix.rotate(-g_magentaAngle, 1, 0, 0); // Joint 1
     backleftlegs.matrix.scale(.15, -0.25, 0.15);
     backleftlegs.matrix.translate(-1.7, 1.5, 1);
+
+    if(shift == true) {
+        backleftlegs.matrix.rotate(g_yellowAngle2, 1, 0, 0);
+    }else{
+        backleftlegs.matrix.rotate(-g_yellowAngle, 0, 0, 1);
+    }
+
     backleftlegs.render();
 
     var backright = new Cube();
@@ -339,40 +377,67 @@ function renderScene() {
 //    backright.matrix.setTranslate(0, 0, 0);
 //    backright.matrix.rotate(g_Angle, 1, 0, 0); // Joint 1
 //    var backrightCoord = new Matrix4(backright.matrix);
+    backright.matrix.rotate(g_magentaAngle, 1, 0, 0); // Joint 1
     backright.matrix.scale(.15, -0.25, 0.15);
     backright.matrix.translate(.8, 1.5, 1);
+    if(shift == true) {
+        backright.matrix.rotate(g_yellowAngle2, 1, 0, 0);
+    }else{
+        backright.matrix.rotate(-g_yellowAngle, 0, 0, 1);
+    }
     backright.render();
 
     var frontleftleglow = new Cube();
     frontleftleglow.color = face_color;
     //frontleftleglow.matrix = frontleftlegCoord;
     //frontleftleglow.matrix.rotate(-g_Angle2, 1, 0, 0);
+    frontleftleglow.matrix.rotate(-g_magentaAngle, 1, 0, 0);
     frontleftleglow.matrix.scale(0.1, 0.1, 0.1);
     frontleftleglow.matrix.translate(-2.25, -6.8,-2.6);
+    if(shift == true) {
+        frontleftleglow.matrix.rotate(g_yellowAngle2, 1, 0, 0);
+    }else{
+        frontleftleglow.matrix.rotate(-g_yellowAngle, 0, 0, 1);
+    }
     frontleftleglow.render();
 
     var frontrightleglow = new Cube();
     frontrightleglow.color = face_color;
    // frontrightleglow.matrix = frontrightlegCoord;
-   // frontrightleglow.matrix.rotate(g_Angle2, 1, 0, 0);
+    frontrightleglow.matrix.rotate(g_magentaAngle, 1, 0, 0);
     frontrightleglow.matrix.scale(0.1, 0.1, 0.1);
     frontrightleglow.matrix.translate(1.5, -6.8, -2.6);
+    if(shift == true) {
+        frontrightleglow.matrix.rotate(g_yellowAngle2, 1, 0, 0);
+    }else{
+        frontrightleglow.matrix.rotate(-g_yellowAngle, 0, 0, 1);
+    }
     frontrightleglow.render();
 
     var backleftlegslow = new Cube();
     backleftlegslow.color = face_color;
     //backleftlegslow.matrix = backleftlegsCoord;
-    //backleftlegslow.matrix.rotate(-g_Angle2, 1, 0, 0);
+    backleftlegslow.matrix.rotate(g_magentaAngle, 1, 0, 0);
     backleftlegslow.matrix.scale(0.1, 0.1, 0.1);
     backleftlegslow.matrix.translate(1.5, -6.8, 1.6);
+    if(shift == true) {
+        backleftlegslow.matrix.rotate(g_yellowAngle2, 0, 0, 1);
+    }else{
+        backleftlegslow.matrix.rotate(-g_yellowAngle, 1, 0, 1);
+    }
     backleftlegslow.render();
 
     var backrightlow = new Cube();
     backrightlow.color = face_color;
     //backrightlow.matrix = backrightCoord;
-    //backrightlow.matrix.rotate(g_Angle2, 1, 0, 0);
+    backrightlow.matrix.rotate(-g_magentaAngle, 1, 0, 0);
     backrightlow.matrix.scale(0.1, 0.1, 0.1);
     backrightlow.matrix.translate(-2.25, -6.8, 1.76);
+    if(shift == true) {
+        backleftlegslow.matrix.rotate(g_yellowAngle2, 1, 0, 0);
+    }else{
+        backleftlegslow.matrix.rotate(-g_yellowAngle, 0, 0, 1);
+    }
     backrightlow.render();
 
     var corner1 = new Triangle(); // right side corner
