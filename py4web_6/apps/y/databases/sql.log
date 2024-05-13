@@ -31,3 +31,9 @@ CREATE TABLE "url_map"(
     "is_active" CHAR(1)
 );
 success!
+timestamp: 2024-05-13T15:14:31.504992
+ALTER TABLE "url_map" ADD "updated_time" CHAR(2024-05-13 15:14:31.504540);
+success!
+timestamp: 2024-05-13T15:20:42.422990
+ALTER TABLE "url_map" ADD "post_date" TIMESTAMP;
+success!
