@@ -1,4 +1,3 @@
-
 // Vertex shader program
 var VSHADER_SOURCE =
     'precision mediump float;' +
@@ -153,9 +152,12 @@ let g_camera = new Camera();
 let u_spotLightPos;
 let g_lightPos = [10,3,12]
 let drawMap_bool = false;
+
 let g_globalAngleY = 0;
 let g_globalAngleX = 0;
 let g_globalAngleZ = 0;
+//let g_globalAngle = 0;
+
 let g_lightColor = [1,1,1];
 let g_lightMoveOn = false;
 let g_spotlightPos = [10.125, g_set_Location+0.4, 7.15];
@@ -417,6 +419,7 @@ function addActionForHtmlUI() {
             g_spotlightPos[2] = this.value/10;
         }
     });
+    document.getElementById('angleSlide').addEventListener('mousemove', function () { g_globalAngle = this.value; renderAllShapes(); });
 
 }
 
@@ -579,8 +582,11 @@ function renderAllShapes() {
 
     // Pass the global rotate matrix
     var globalRotMat = new Matrix4().rotate(g_globalAngleX, 1, 0, 0)
+    globalRotMat.rotate(g_globalAngle, 0, 1, 0);
+
     globalRotMat.rotate(g_globalAngleY, 0, 1, 0);
     globalRotMat.rotate(g_globalAngleZ, 0, 0, 1);
+
     gl.uniformMatrix4fv(u_GlobalRotateMatrix, false, globalRotMat.elements);
 
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
