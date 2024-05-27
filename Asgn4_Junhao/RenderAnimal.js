@@ -187,53 +187,6 @@ function drawthesheep() {
     backrightlow.matrix.translate(1.5, -6.4, 1.76);
     backrightlow.render();
 
-    // var tails = new Cube();
-    // tails.color = [0.85, 0.85, 0.85, 1]
-    // tails.matrix.translate(10,g_set_Location+0.2,7)
-    // if(Shift_and_Click){
-    //     tails.matrix.rotate(g_tails_animation, 1, 0, 0)
-    // }else{
-    //     tails.matrix.rotate(g_tails_animation, 0, 1, 0)
-    // }
-    // var TailOneCoord = new Matrix4(tails.matrix);
-    // tails.matrix.scale(0.2, 0.2, 0.2)
-    // tails.matrix.translate(-0.5, 0.6, 1.1)
-    // tails.render();
-
-    // var second_tails = new Cube();
-    // second_tails.color = [0.85, 0.85, 0.85, 1]
-    // second_tails.matrix.translate(10,g_set_Location+0.2,7)
-    // second_tails.matrix = TailOneCoord;
-    // if(Shift_and_Click){
-    //     second_tails.matrix.rotate(g_tails_animation, 1, 0, 0)
-    // }else{
-    //     second_tails.matrix.rotate(g_tails_animation, 0, 1, 0)
-    // }
-    // var TailSecondCoord = new Matrix4(second_tails.matrix);
-    // second_tails.matrix.scale(0.15, 0.15, 0.15)
-    // second_tails.matrix.translate(-0.5, 1, 2.5)
-    // second_tails.render();
-
-    // var third_tails = new Four_pyramid();
-    // third_tails.color = [0.2, 0.2, 0.2, 1]
-    // third_tails.matrix.translate(10,g_set_Location+0.2,7)
-    // third_tails.matrix = TailSecondCoord;
-    // if(Shift_and_Click){
-    //     third_tails.matrix.rotate(g_tails_animation, 1, 0, 0)
-    // }else {
-    //     third_tails.matrix.rotate(g_tails_animation, 0, 1, 0)
-    // }
-    // var TailThirdCoord = new Matrix4(third_tails.matrix);
-    // third_tails.matrix.scale(0.13, 0.13, 0.13)
-    // third_tails.matrix.translate(-0.5, 1.2, 4)
-    // third_tails.render();
-
-
-
-
-
-
-
 }
 
 
