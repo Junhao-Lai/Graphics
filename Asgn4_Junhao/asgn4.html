@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8"/>
+    <title>Junhao's Asgn4</title>
+</head>
+
+<body onload="main()">
+<canvas height="400" id="webgl" width="400">
+    Please use a browser that supports "canvas"
+</canvas>
+<br>
+<br>
+
+<p id="fps">ms:0,fps:0</p>
+<button id="Normal_On">Normal On</button>
+<button id="Normal_Off">Normal Off</button>
+
+<br>
+<br>
+Light :
+<Button id="Light_On">ON</Button>
+<Button id="Light_Off">OFF</Button>
+<br>
+<br>
+Light Moving:
+The light will moving on the Y axis!
+<button id="light_animation_On">On</button>
+
+<button id="light_animation_Off">Off</button>
+<p>
+    Light X<input class="slider" id="lightSlideX" max="2000" min="0" type="range" value="1500">
+<p>
+    Light Y<input class="slider" id="lightSlideY" max="500" min="-500" type="range" value="0">
+<p>
+    Light Z<input class="slider" id="lightSlideZ" max="2000" min="50" type="range" value="1000">
+</p>
+
+
+
+<br>Spot Light:
+<button id="Spot_Light_on">Spot Light on</button>
+<button id="Spot_Light_off">Spot Light off</button> 
+
+<br><br>
+Spot_light position X:<input class="slider" id="SpotlightSlideX" max="300" min="0" type="range" value="150">
+<br><br>
+Spot_light position Y:<input class="slider" id="SpotlightSlideY" max="300" min="0" type="range" value="150">
+<br><br>
+Spot_light position Z:<input class="slider" id="SpotlightSlideZ" max="300" min="0" type="range" value="150">
+<br><br>
+Light Color :
+<br>
+<br>
+Red <input class="slider" id="lightRed" max="255" min="0" type="range" value="255">
+<br>
+Green <input class="slider" id="lightGreen" max="255" min="0" type="range" value="255">
+<br>
+Blue <input class="slider" id="lightBlue" max="255" min="0" type="range" value="255">
+<br><br>
+
+<button id="Animate">Sheep Running</button>
+
+
+<br>
+<br>
+<~~~~~README~~~~~>
+<br>
+Use keyboard to explore the world!
+<br>W : Move Forwards
+<br>S : Move Backwards
+<br>A : Move Left
+<br>D : Move Right
+<br>Z : Move Up
+<br>X : Move Down
+<br>Q : Look Left Horizontally
+<br>E : Look Right Horizontally
+
+<script src="lib/webgl-utils.js"></script>
+<script src="lib/webgl-debug.js"></script>
+<script src="lib/cuon-utils.js"></script>
+<script src="lib/cuon-matrix-cse160.js"></script>
+<script src="RenderAnimal.js"></script>
+<script src="Four_pyramid.js"></script>
+<script src="Triangle.js"></script>
+<script src="Circle.js"></script>
+<script src="Point.js"></script>
+<script src="sphere.js"></script>
+<script src="Cube.js"></script>
+<script src="camera.js"></script>
+<script src="asgn4.js"></script>
+</body>
+</html>
